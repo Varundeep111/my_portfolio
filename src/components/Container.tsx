@@ -5,7 +5,6 @@ import { cn, scrollTo } from "@/lib/utils";
 import { useState, useEffect } from "react";
 import Footer from "@/components/Footer";
 import { useRouter } from "next/router";
-import Preloader from "@/components/Preloader";
 import styles from "@/styles/Container.module.css";
 
 type IconProps = {
@@ -77,7 +76,6 @@ function NavItem(props: NavProps) {
 export default function Container(props: ContainerProps) {
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const [isScrolled, setIsScrolled] = useState<boolean>(false);
-  const [isLoading, setIsLoading] = useState<boolean>(true);
 
   const { children, ...customMeta } = props;
   const router = useRouter();
@@ -100,15 +98,6 @@ export default function Container(props: ContainerProps) {
     return () => {
       window.removeEventListener("scroll", handleScroll);
     };
-  }, []);
-
-  // preloader effect
-  useEffect(() => {
-    setTimeout(() => {
-      setIsLoading(false);
-      document.body.style.cursor = "default";
-      window.scrollTo(0, 0);
-    }, 2000);
   }, []);
 
   return (
@@ -238,11 +227,6 @@ export default function Container(props: ContainerProps) {
           }
         `}</style>
       </nav>
-
-      {/* Preloader */}
-      <AnimatePresence mode="wait">
-        {isLoading && <Preloader />}
-      </AnimatePresence>
 
       {/* Main content */}
       <main className={cn("container", props.className)}>{children}</main>

@@ -4,9 +4,8 @@ import styles from "@/styles/Home.module.css";
 import { Button } from "@/components/ui/button";
 import {
   ChevronRight,
-  Code2,
-  Frame,
-  SearchCheck,
+
+
   Eye,
   MonitorSmartphone,
 } from "lucide-react";
@@ -26,11 +25,6 @@ import {
 import VanillaTilt from "vanilla-tilt";
 import { motion } from "framer-motion";
 
-const aboutStats = [
-  { label: "Years of experience", value: "3+" },
-  { label: "Technologies mastered", value: "5+" },
-  { label: "Companies worked with", value: "15+" },
-];
 
 const projects = [
   {
@@ -38,33 +32,34 @@ const projects = [
     description: "Postiverse: A Flutter social platform for communities and posts",
     image: "/assets/postiverse.png",
     href: "https://github.com/Varundeep111/postiverse",
+    target:"_blank"
   },
   {
     title: "Beatvibe",
     description: "BeatVibe: Flutter music app with FastAPI backend for streaming and uploads",
     image: "/assets/beatvibe.png",
     href: "https://github.com/Varundeep111/BeatVibe",
+    target:"_blank"
   },
   {
     title: "Scrap Real-Estate Website",
     description: "Scraping 99 acre",
     videoSrc: "/assets/Scrap_99acres.webm",
     image: "/assets/beatvibe.png",
-   
     href: "/projects/real_estate_scraping",
   },
   {
     title: "Data Analysis and Visualisation  Using  ML",
     description: "Transforming Complex Rental Market Data into Actionable Insights",
     image: "/assets/real_estate_market_analysis.png",
-    href:"#",
+    href:"",
   },
  
   {
     title: "Data Analysis and Visualisation  Using  ML",
     description: "Transforming Complex Rental Market Data into Actionable Insights",
     image: "/assets/real_estate_market_analysis.png",
-    href:'#',
+    href:"",
   },
 ];
 
@@ -269,14 +264,23 @@ export default function Home() {
   
   <Link href="https://leetcode.com/u/varundeepsingh/" target="_blank" passHref>
   <Button variant="outline" size="icon" className="w-9 h-9">
-    <img src="assets/leetcodeee.svg" alt="LeetCode Logo" className="w-full h-full object-contain" />
+    <Image 
+    src="assets/leetcodeee.svg" 
+    alt="LeetCode Logo" 
+    width={24}
+    height={24}
+    className="w-full h-full object-contain" />
   </Button>
 </Link>
 
  
 <Link href="https://www.geeksforgeeks.org/user/varun111guliani/" target="_blank" passHref>
   <Button variant="outline" size="icon" className="w-9 h-9">
-    <img src="assets/gfg.svg" alt="LeetCode Logo" className="w-full h-full object-contain" />
+    <Image src="assets/gfg.svg" 
+    alt="LeetCode Logo"
+    height={24}
+    width={24}
+    className="w-full h-full object-contain" />
   </Button>
 </Link>
 
@@ -385,8 +389,32 @@ export default function Home() {
   <CarouselItem key={project.title} className="md:basis-1/2">
     <Card id="tilt">
       <CardHeader className="p-0">
-        <Link href={project.href} target="_blank" passHref>
-          {project.videoSrc && isClient ? (
+        {project.videoSrc && isClient ? (
+          project.href && project.href !== '' ? (
+            project.href.startsWith('http') || project.href.startsWith('www') ? (
+              <Link href={project.href} target="_blank" rel="noopener noreferrer">
+                <video
+                  suppressHydrationWarning
+                  src={project.videoSrc}
+                  autoPlay
+                  loop
+                  muted
+                  className="aspect-video h-full w-full rounded-t-md bg-primary object-cover"
+                />
+              </Link>
+            ) : (
+              <Link href={project.href}>
+                <video
+                  suppressHydrationWarning
+                  src={project.videoSrc}
+                  autoPlay
+                  loop
+                  muted
+                  className="aspect-video h-full w-full rounded-t-md bg-primary object-cover"
+                />
+              </Link>
+            )
+          ) : (
             <video
               suppressHydrationWarning
               src={project.videoSrc}
@@ -395,6 +423,33 @@ export default function Home() {
               muted
               className="aspect-video h-full w-full rounded-t-md bg-primary object-cover"
             />
+          )
+        ) : (
+          // Existing image rendering logic remains the same
+          project.href && project.href !== '' ? (
+            project.href.startsWith('http') || project.href.startsWith('www') ? (
+              <Link href={project.href} target="_blank" rel="noopener noreferrer">
+                <Image
+                  src={project.image}
+                  alt={project.title}
+                  width={600}
+                  height={300}
+                  quality={100}
+                  className="aspect-video h-full w-full rounded-t-md bg-primary object-cover"
+                />
+              </Link>
+            ) : (
+              <Link href={project.href}>
+                <Image
+                  src={project.image}
+                  alt={project.title}
+                  width={600}
+                  height={300}
+                  quality={100}
+                  className="aspect-video h-full w-full rounded-t-md bg-primary object-cover"
+                />
+              </Link>
+            )
           ) : (
             <Image
               src={project.image}
@@ -404,11 +459,10 @@ export default function Home() {
               quality={100}
               className="aspect-video h-full w-full rounded-t-md bg-primary object-cover"
             />
-          )}
-        </Link>
+          )
+        )}
       </CardHeader>
-
-                        <CardContent className="absolute bottom-0 w-full bg-background/50 backdrop-blur">
+                                        <CardContent className="absolute bottom-0 w-full bg-background/50 backdrop-blur">
                           <CardTitle className="border-t border-white/5 p-4 text-base font-normal tracking-tighter">
                             {project.description}
                           </CardTitle>

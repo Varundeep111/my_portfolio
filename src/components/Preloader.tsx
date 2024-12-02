@@ -4,20 +4,17 @@ import styles from "@/styles/Container.module.css";
 
 const words = [
   "Hello", "नमस्ते", "ਸਤ ਸ੍ਰੀ ਅਕਾਲ", 
-  "Bonjour", "Ciao", "Guten Tag", "Здравствуйте"
+  "Bonjour", "Ciao", "Guten Tag"
 ];
 
 export default function Preloader() {
   const [index, setIndex] = useState(0);
   const [dimension, setDimension] = useState({ width: 0, height: 0 });
   const [isVisible, setIsVisible] = useState(true);
-  const hasRunRef = useRef(false);
+  const hasRunRef = useRef(true);
 
   // Safely get window dimensions and prevent multiple runs
   useEffect(() => {
-    // Prevent multiple runs
-    if (hasRunRef.current) return;
-
     const getDimensions = () => {
       if (typeof window !== 'undefined') {
         return { 
@@ -28,20 +25,18 @@ export default function Preloader() {
       return { width: 0, height: 0 };
     };
 
-    // Set dimensions and mark as run
+    // Set dimensions
     const dims = getDimensions();
     setDimension(dims);
-    hasRunRef.current = true;
 
-    // Cleanup to reset if needed
+    // Prevent resize listener from causing re-render
     return () => {
       hasRunRef.current = false;
     };
   }, []);
 
-  // Word cycling logic with prevention of multiple runs
+  // Word cycling logic
   useEffect(() => {
-    // Skip if already processed
     if (!hasRunRef.current) return;
 
     const timer = setTimeout(() => {
@@ -56,8 +51,8 @@ export default function Preloader() {
     return () => clearTimeout(timer);
   }, [index]);
 
-  // Prevent render if dimensions not set or already processed
-  if (dimension.width === 0 || !hasRunRef.current) return null;
+  // Prevent render if dimensions not set
+  if (dimension.width === 0) return null;
 
   // Path calculations for SVG animation
   const initialPath = `M0 0 L${dimension.width} 0 L${dimension.width} ${dimension.height} Q${dimension.width / 2} ${dimension.height + 300} 0 ${dimension.height} L0 0`;
