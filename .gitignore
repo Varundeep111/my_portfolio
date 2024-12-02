@@ -24,6 +24,12 @@ next-env.d.ts
 .DS_Store
 *.pem
 
+
+# PWA build artifacts
+/public/service-worker.js
+/public/workbox-*.js
+
+
 # debug
 npm-debug.log*
 yarn-debug.log*
