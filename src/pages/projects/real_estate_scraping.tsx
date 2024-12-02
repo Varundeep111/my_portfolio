@@ -67,9 +67,7 @@ function Gradient() {
 }
 
 // Define an interface for the CSV data rows to improve type safety
-interface RentalDataRow {
-  [key: string]: string | number | null;
-}
+type RentalDataRow = Record<string, string | number | null>;
 
 export default function RealEstateScrapingProject() {
   const [csvData, setCsvData] = useState<RentalDataRow[]>([]);
@@ -93,23 +91,23 @@ export default function RealEstateScrapingProject() {
             // Limit to first 10 rows
             setCsvData(results.data.slice(0, 10));
             // Explicitly set headers to avoid TypeScript issues
-            setHeaders(results.meta.fields || []);
+            setHeaders(results.meta.fields ?? []);
             setIsLoading(false);
           },
           error: (error: Error) => {
-            console.error('Error parsing CSV:', error);
+            void console.error('Error parsing CSV:', error);
             setError(error.message);
             setIsLoading(false);
           }
         });
       } catch (error) {
-        console.error('Error reading file:', error);
+        void console.error('Error reading file:', error);
         setError(error instanceof Error ? error.message : 'An unknown error occurred');
         setIsLoading(false);
       }
     };
 
-    fetchCsvData();
+    void fetchCsvData();
   }, []);
 
   // Function to download full CSV
