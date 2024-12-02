@@ -34,34 +34,37 @@ const aboutStats = [
 
 const projects = [
   {
-    title: "Unqueue",
-    description: "E-commerce platform for selling digital products",
-    image: "/assets/unqueue.webm",
-    href: "https://unqueue.shop/",
+    title: "Postiverse",
+    description: "Postiverse: A Flutter social platform for communities and posts",
+    image: "/assets/postiverse.png",
+    href: "https://github.com/Varundeep111/postiverse",
   },
   {
-    title: "InfiniteVPS",
-    description: "High performance VPS hosting solution",
-    image: "/assets/infinitevps.webm",
-    href: "#",
+    title: "Beatvibe",
+    description: "BeatVibe: Flutter music app with FastAPI backend for streaming and uploads",
+    image: "/assets/beatvibe.png",
+    href: "https://github.com/Varundeep111/BeatVibe",
   },
   {
-    title: "TranslateBot",
-    description: "Powerful Multilingual Translation Bot for Discord",
-    image: "/assets/translate_bot.webm",
-    href: "https://translatebot.app/",
+    title: "Scrap Real-Estate Website",
+    description: "Scraping 99 acre",
+    videoSrc: "/assets/Scrap_99acres.webm",
+    image: "/assets/beatvibe.png",
+   
+    href: "/projects/real_estate_scraping",
   },
   {
-    title: "Wrona",
-    description: "Robotics-focused technology company",
-    image: "/assets/wrona.jpeg",
-    href: "https://www.wrona.com/",
+    title: "Data Analysis and Visualisation  Using  ML",
+    description: "Transforming Complex Rental Market Data into Actionable Insights",
+    image: "/assets/real_estate_market_analysis.png",
+    href:"#",
   },
+ 
   {
-    title: "This website",
-    description: "My personal website",
-    image: "/assets/portfolio.webm",
-    href: "https://github.com/wendoj/portfolio",
+    title: "Data Analysis and Visualisation  Using  ML",
+    description: "Transforming Complex Rental Market Data into Actionable Insights",
+    image: "/assets/real_estate_market_analysis.png",
+    href:'#',
   },
 ];
 
@@ -190,9 +193,9 @@ export default function Home() {
               data-scroll-speed=".09"
               className="flex flex-row items-center space-x-1.5"
             >
-              <span className={styles.pill}>Flutter </span>
-              <span className={styles.pill}>Kotlin</span>
-              <span className={styles.pill}>Java</span>
+              <span className={styles.pill}>Mobile Development </span>
+              <span className={styles.pill}>Web Scraping</span>
+              <span className={styles.pill}>AI/ML</span>
             </div>
             <div>
               <h1
@@ -201,11 +204,11 @@ export default function Home() {
                 data-scroll-speed=".06"
                 data-scroll-direction="horizontal"
               >
-                <span className="text-6xl tracking-tighter text-foreground 2xl:text-8xl">
+                <span className="text-4xl tracking-tighter 2xl:text-6xl">
                   Hello, I&apos;m
                   <br />
                 </span>
-                <span className="clash-grotesk text-gradient text-6xl 2xl:text-8xl">
+                <span className="clash-grotesk text-gradient text-4xl 2xl:text-6xl">
                   Varundeep Singh.
                 </span>
               </h1>
@@ -215,8 +218,9 @@ export default function Home() {
                 data-scroll-speed=".06"
                 className="mt-1 max-w-lg tracking-tight text-muted-foreground 2xl:text-xl"
               >
-                A Software Developer with passion for Mobile Development using
-                Flutter, Kotlin, Java, Also For Web Scraping, AI
+
+              Software Developer specializing in Mobile Development (Flutter, Kotlin, Java), 
+              Web Scraping, and AI Solutions.
               </p>
             </div>
             <span
@@ -225,7 +229,7 @@ export default function Home() {
               data-scroll-speed=".06"
               className="flex flex-row items-center space-x-1.5 pt-6"
             >
-              <Link href="mailto:wendoj@proton.me" passHref>
+              <Link href="mailto:varun111guliani@gmail.com" passHref>
                 <Button>
                   Get in touch <ChevronRight className="ml-1 h-4 w-4" />
                 </Button>
@@ -237,6 +241,47 @@ export default function Home() {
                 Learn more
               </Button>
             </span>
+
+            <div 
+  data-scroll
+  data-scroll-enable-touch-speed
+  data-scroll-speed=".06"
+  className="flex items-center space-x-4 pt-4"
+>
+  <Link href="https://github.com/Varundeep111" target="_blank" passHref>
+    <Button variant="outline" size="icon" className="w-9 h-9">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.28 1.15-.28 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"/>
+        <path d="M9 18c-4.51 2-5-2-7-2"/>
+      </svg>
+    </Button>
+  </Link>
+  
+  <Link href="https://www.linkedin.com/in/varundeep-singh-5b063b224/" target="_blank" passHref>
+    <Button variant="outline" size="icon" className="w-9 h-9">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/>
+        <rect width="4" height="12" x="2" y="9"/>
+        <circle cx="4" cy="4" r="2"/>
+      </svg>
+    </Button>
+  </Link>
+  
+  <Link href="https://leetcode.com/u/varundeepsingh/" target="_blank" passHref>
+  <Button variant="outline" size="icon" className="w-9 h-9">
+    <img src="assets/leetcodeee.svg" alt="LeetCode Logo" className="w-full h-full object-contain" />
+  </Button>
+</Link>
+
+ 
+<Link href="https://www.geeksforgeeks.org/user/varun111guliani/" target="_blank" passHref>
+  <Button variant="outline" size="icon" className="w-9 h-9">
+    <img src="assets/gfg.svg" alt="LeetCode Logo" className="w-full h-full object-contain" />
+  </Button>
+</Link>
+
+ 
+ </div>
 
             <div
               className={cn(
@@ -267,7 +312,7 @@ export default function Home() {
           </div>
         </section>
 
-        <section data-scroll-section className="mx-auto my-32 max-w-5xl px-4">
+        <section id="about" data-scroll-section className="mx-auto my-32 max-w-5xl px-4">
           <div
             data-scroll
             data-scroll-speed=".4"
@@ -341,10 +386,10 @@ export default function Home() {
     <Card id="tilt">
       <CardHeader className="p-0">
         <Link href={project.href} target="_blank" passHref>
-          {project.image.endsWith(".webm") && isClient ? (
+          {project.videoSrc && isClient ? (
             <video
               suppressHydrationWarning
-              src={project.image}
+              src={project.videoSrc}
               autoPlay
               loop
               muted
@@ -363,31 +408,6 @@ export default function Home() {
         </Link>
       </CardHeader>
 
-                  {/* {projects.map((project) => (
-                    <CarouselItem key={project.title} className="md:basis-1/2">
-                      <Card id="tilt">
-                        <CardHeader className="p-0">
-                          <Link href={project.href} target="_blank" passHref>
-                            {project.image.endsWith(".webm") ? (
-                              <video
-                                src={project.image}
-                                autoPlay
-                                loop
-                                muted
-                                className="aspect-video h-full w-full rounded-t-md bg-primary object-cover"
-                              />
-                            ) : (
-                              <Image
-                                src={project.image}
-                                alt={project.title}
-                                width={600}
-                                height={300}
-                                quality={100}
-                                className="aspect-video h-full w-full rounded-t-md bg-primary object-cover"
-                              />
-                            )}
-                          </Link>
-                        </CardHeader> */}
                         <CardContent className="absolute bottom-0 w-full bg-background/50 backdrop-blur">
                           <CardTitle className="border-t border-white/5 p-4 text-base font-normal tracking-tighter">
                             {project.description}
