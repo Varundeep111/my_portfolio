@@ -323,14 +323,21 @@ export default function Home() {
             className="flex flex-col items-center text-center"
           >
             <h2 className="mb-6 max-w-4xl text-3xl font-light leading-relaxed text-gray-300 md:text-4xl">
-              I&apos;ve spent 3+ years in software development, and my goal
-              isn&apos;t just to write code — it&apos;s to help create innovative
-              solutions, master problem-solving, and build applications that
-              make a difference.
-            </h2>
+            
+            My goal isn&apos;t just to write code — it&apos;s to contribute to innovative
+  solutions by blending creativity and technical skills to build impactful
+  applications. With a passion for problem-solving, I focus on{" "}
+  <span className="underline font-bold">mobile development</span>,{" "}
+  <span className="underline font-bold">web development</span>,{" "}
+  <span className="underline font-bold">web scraping</span>, and crafting{" "}
+  <span className="underline font-bold">AI/ML-powered solutions</span> that
+  address real-world challenges.
+             </h2>
 
             <div className="relative mt-8 w-full max-w-3xl overflow-hidden rounded-lg bg-black/50 shadow-xl">
-              {isClient && (
+              {/* Commented out vidoe Section*/}
+              
+              {/* {isClient && (
                 <div className="aspect-video">
                   <video
                     suppressHydrationWarning 
@@ -343,7 +350,7 @@ export default function Home() {
                     className="w-full h-[400px] object-cover"
                   />
                 </div>
-              )}
+              )} */}
               <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent pointer-events-none" />
             </div>
           </div>
